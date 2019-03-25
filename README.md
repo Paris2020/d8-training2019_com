@@ -1,3 +1,5 @@
+# d8-training2019_com
+Revising on D8 Sitebuilding, Templating and Theming from scratch
 # Amazee Drupal 8 Starter
 
 A Drupal 8 starter project built with Composer.
@@ -158,3 +160,4 @@ You will need:
   - Manually move the `sites/default/files` directory to `web/sites/default/files`
   - Manually remove all leftover derictories that should not be there anymore (like `modules`, `themes`, etc)
   - Update bash aliases, example: https://github.com/AmazeeLabs/devops/commit/e257359
+
