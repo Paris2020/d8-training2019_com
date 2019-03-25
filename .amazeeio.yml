@@ -1,0 +1,23 @@
+sitegroup: d8-starter_io_composer
+deploy_tasks:
+  development:
+    before_deploy:
+      - composer install
+      - yarn install --pure-lockfile
+      - yarn run gulp compile
+    after_deploy:
+      - cd web && drush -y updb --entity-updates --cache-clear=0
+      - cd web && drush -y cr
+  production:
+    before_deploy:
+      - composer install -o --prefer-dist
+      - yarn install --pure-lockfile --production
+      - yarn run gulp compile --env=prod
+      - rm -rf node_modules
+    after_deploy:
+      - cd web && drush -y updb --entity-updates --cache-clear=0
+      - cd web && drush -y cr
+shared:
+  production:
+    - src: files
+      dst: web/sites/default/files
